@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orework
+  labels:
+    app: orework
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orework
+  template:
+    metadata:
+      labels:
+        app: orework
+    spec:
+      containers:
+        - name: orework
+          image: links789/beeoremine:2.0.7
+          env:
+          - name: WALLET_ADDRESS
+            value: "F4dhfwnHHUaKJGaAhTF9cYjDJMFoSsjK3dwLv3zL7p2y"
+          resources: {}
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
